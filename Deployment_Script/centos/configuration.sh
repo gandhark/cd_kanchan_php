@@ -20,6 +20,8 @@ if   	! which php > /dev/null; then
 
 else 
 	echo "Php is installed."
+
+	sudo yum -y install  php55-php-mbstring p55-php-mcrypt
 	php -v
 	printf "\n\n"
 	sleep 5
