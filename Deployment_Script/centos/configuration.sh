@@ -43,6 +43,37 @@ else
        	mysql --version
 	/etc/init.d/mysqld start
 fi
+
+
+
+
+
+
+
+
+
+
+
+if      ! which git>/dev/null; then
+        echo -e "git is not installed!! \c"
+        echo -e "Installing git..."
+        sleep 5
+        yum clean all
+         yum -y install git
+        
+        fi
+else
+        echo "git is installed."
+        git --version
+fi
+
+
+
+
+
+
+
+
 ############## Apache Setup ####################
 echo "Making Firewall rules to permissive";
 	setenforce 0
