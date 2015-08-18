@@ -37,7 +37,7 @@ if 	! which mysql>/dev/null; then
 	yum clean all
 	 yum -y install mysql-server
 	/etc/init.d/mysqld start	
- 	fi
+ 	
 else
 	echo "MySQL is installed."    
        	mysql --version
@@ -61,7 +61,7 @@ if      ! which git>/dev/null; then
         yum clean all
          yum -y install git
         
-        fi
+        
 else
         echo "git is installed."
         git --version

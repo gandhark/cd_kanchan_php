@@ -31,7 +31,7 @@ if 	! which mysql>/dev/null; then
 	yum clean all
 	 yum -y install mysql-server
 	/etc/init.d/mysqld start	
- 	fi
+ 	
 else
 	echo "MySQL is installed."    
        	mysql --version
