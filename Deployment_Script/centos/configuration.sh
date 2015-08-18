@@ -44,16 +44,10 @@ else
 	/etc/init.d/mysqld start
 fi
 
-
-
-
-
-
-
-
-
-
-
+############## GIT installation ####################
+echo "#######################################################"
+echo "Installing Git"
+echo "#######################################################"
 if      ! which git>/dev/null; then
         echo -e "git is not installed!! \c"
         echo -e "Installing git..."
@@ -66,13 +60,6 @@ else
         echo "git is installed."
         git --version
 fi
-
-
-
-
-
-
-
 
 ############## Apache Setup ####################
 echo "Making Firewall rules to permissive";

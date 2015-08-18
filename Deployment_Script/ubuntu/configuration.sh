@@ -28,8 +28,8 @@ if 	! which mysql>/dev/null; then
 	echo -e "Mysql is not installed!! \c"
 	echo -e "Installing Mysql..."
 	sleep 5
-	yum clean all
-	 yum -y install mysql-server
+	apt-get clean  all
+	apt-get -y install mysql-server
 	/etc/init.d/mysqld start	
  	
 else
@@ -56,5 +56,23 @@ else
 	sleep 5
 fi
 
+
+
+############## GIT installation ####################
+echo "#######################################################"
+echo "Installing git"
+echo "#######################################################"
+if      ! which git>/dev/null; then
+        echo -e "Git is not installed!! \c"
+        echo -e "Installing Git..."
+        sleep 5
+        apt-get clean  all
+        apt-get -y install git
+
+else
+        echo "git is installed."
+        git --version
+        
+fi
 
 
