@@ -3,12 +3,18 @@
 echo "#################################################" 
 echo "Deploying Application"
 	sh deployment.sh
-echo "#######################################"
-echo "Creating Symbolic Link"
-echo "######################################"
-unlink $PROJECTDIR
-ln -s $PROJECTDIR $SYMPATH 
-echo "######################################"
+
+
+#echo "#######################################"
+#echo "Creating Symbolic Link"
+#echo "######################################"
+#unlink $PROJECTDIR
+#ln -s $PROJECTDIR $SYMPATH 
+#echo "######################################"
+
+
+
+
 echo "Creating Host Configuration File"
 echo "#####################################"
 rm -rf $CONFFILEPATH_UBUNTU/$CONFFILENAME.conf
@@ -29,6 +35,18 @@ echo "<VirtualHost *:$SERVERPORT>
     		DocumentRoot $SYMPATH/$CONFFILENAME
     		ServerName $SERVERNAME
    	</VirtualHost>">>$CONFFILEPATH_UBUNTU/$CONFFILENAME.conf
+
+#echo "#######################################"
+#echo "Creating Symbolic Link"
+#echo "######################################"
+#unlink $PROJECTDIR
+#ln -s $PROJECTDIR $SYMPATH
+#echo "######################################"
+
+
+
+
+
 echo "Creating Entry in Host file"
 echo  "$SERVERIP $SERVERNAME">>/etc/hosts
 echo "Now Enabling Site to view"

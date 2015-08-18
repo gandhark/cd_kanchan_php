@@ -10,3 +10,4 @@ CONFFILENAME=ecomm_project_demo
 CONFFILEPATH_CENTOS=/opt/rh/httpd24/root/etc/httpd/conf.d/
 CONFFILEPATH_UBUNTU=/etc/apache2/sites-available/
 ZIPNAME=ecomm_project_demo
+GIT_URL=http://172.27.59.62:7990/scm/atm/alm-task-manager.git

@@ -9,7 +9,7 @@ if   	! which php > /dev/null; then
    	echo "Installinig Php and php-mysql..."
   	sleep 5
   	yum clean all
-  	sudo yum -y install php55-php php55-php-mysql php55-php-pecl-xdebug
+  	sudo yum -y install php55-php php55-php-mysql php55-php-pecl-xdebug php55-php-mbstring p55-php-mcrypt 
 	cd ~
 	head -n3 /opt/rh/httpd24/enable>>.bashrc
 	head -n3 /opt/rh/php55/enable>>.bashrc

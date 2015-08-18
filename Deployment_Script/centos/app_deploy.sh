@@ -5,12 +5,17 @@ source ../appconfig;
 echo "#################################################" 
 echo "Deploying Application"
 	sh deployment.sh
-echo "#######################################"
-echo "Creating Symbolic Link"
+
+
+#echo "#######################################"
+#echo "Creating Symbolic Link"
+#echo "######################################"
+#unlink $PROJECTDIR
+#ln -s $PROJECTDIR $SYMPATH_CENTOS 
 echo "######################################"
-unlink $PROJECTDIR
-ln -s $PROJECTDIR $SYMPATH_CENTOS 
-echo "######################################"
+
+
+
 echo "Creating Host Configuration File"
 echo "#####################################"
 rm -rf $CONFFILEPATH_CENTOS/$CONFFILENAME.conf
@@ -31,6 +36,13 @@ echo "<VirtualHost *:$SERVERPORT>
     		DocumentRoot $SYMPATH_CENTOS/$CONFFILENAME
     		ServerName $SERVERNAME
    	</VirtualHost>">>$CONFFILEPATH_CENTOS/$CONFFILENAME.conf
+
+echo "#######################################"
+echo "Creating Symbolic Link"
+echo "######################################"
+unlink $PROJECTDIR
+ln -s $PROJECTDIR $SYMPATH_CENTOS
+
 echo "Creating Entry in Host file"
 echo  "$SERVERIP $SERVERNAME">>/etc/hosts
 echo "######################################################"
