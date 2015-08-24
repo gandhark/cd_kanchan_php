@@ -11,6 +11,7 @@ echo "###########################################################"
 	git clone http://$USER_REPO:$PASS_REPO@$GIT_URL $CONFFILENAME
 	ls-lrt;
 	#unzip   $ZIPNAME.zip -d $PROJECTDIR
+	chmod -R 777 $CONFFILENAME/app/storage
 	#rm -rf $ZIPNAME.zip  
 
 echo "Giving  permission to clone repo source code"
