@@ -1,16 +1,23 @@
-#!/bin/bash
-. ../appconfig
+#!/bin/sh
+source ../appconfig;
+
 echo "###########################################################"
-echo "Taking artifact and extactacting into Web Server Directory"
+echo "cloning repo  into Web Server Directory"
 echo "###########################################################"
-	rm -rf $PROJECTDIR
-	cd /opt
-	unzip   $ZIPNAME.zip -d $PROJECTDIR
-	rm -rf $ZIPNAME.zip   
-echo "Giving  permission to artifact"
-chmod -R 755 $CONFFILENAME
-echo "successfully Deployed";
-echo "Check your site on  url $SERVERNAME";
+        cd /opt
+        echo $USER_REPO
+        echo $PASS_REPO
+        echo $GIT_URL
+        git clone http://$USER_REPO:$PASS_REPO@$GIT_URL $CONFFILENAME
+        ls-lrt;
+        #unzip   $ZIPNAME.zip -d $PROJECTDIR
+        #rm -rf $ZIPNAME.zip
+
+echo "Giving  permission to clone repo source code"
+pwd
+chmod -R 755 /opt/$CONFFILENAME
+echo "successfully copied into /opt..next will be to create symlink"
+#echo "Check your site on  url $SERVERNAME";
 
 
 

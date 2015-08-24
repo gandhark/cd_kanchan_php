@@ -1,5 +1,5 @@
 #!/bin/bash
-############### Php 5.5.6 Installation ######################
+echo "############### Php 5.5.6 Installation ######################"
 			
 echo "#######################################################"
 echo "Installing Php"
@@ -9,7 +9,7 @@ if   	! which php > /dev/null; then
    	echo "Installinig Php and php-mysql..."
   	sleep 5
   	yum clean all
-  	sudo yum -y install php55-php php55-php-mysql php55-php-pecl-xdebug php55-php-mbstring p55-php-mcrypt 
+  	sudo yum -y install php55-php php55-php-mysql php55-php-pecl-xdebug php55-php-mbstring php55-php-mcrypt 
 	cd ~
 	head -n3 /opt/rh/httpd24/enable>>.bashrc
 	head -n3 /opt/rh/php55/enable>>.bashrc
@@ -26,7 +26,7 @@ else
 fi
 
 
-############## MySQL installation ####################
+echo "############## MySQL installation ####################"
 echo "#######################################################"
 echo "Installing MYsql"
 echo "#######################################################"
@@ -44,7 +44,7 @@ else
 	/etc/init.d/mysqld start
 fi
 
-############## GIT installation ####################
+echo "############## GIT installation ####################"
 echo "#######################################################"
 echo "Installing Git"
 echo "#######################################################"
@@ -61,8 +61,35 @@ else
         git --version
 fi
 
-############## Apache Setup ####################
+
+echo "##################################Composer globally###############"
+
+if      ! which composer > /dev/null; then
+	cd /opt
+	pwd
+	echo "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+	mkdir compinstall
+	cd compinstall
+	pwd
+	curl -sS https://getcomposer.org/installer | php
+	ls -lrt
+	mv  composer.phar /usr/local/bin;
+	cd /usr/local/bin
+	mv composer.phar composer
+	#alias composer='/usr/local/bin';
+	ls -lrt
+	cd ..
+	pwd
+	cd /opt
+	rm -rf compinstall
+
+else
+	echo "composer is installed"
+	composer -v	
+fi
+
+echo "############## Apache Setup ####################"
 echo "Making Firewall rules to permissive";
 	setenforce 0
   	/etc/init.d/httpd24-httpd start
-echo " started httpd server";
+echo " started httpd server successfully";

@@ -40,12 +40,19 @@ echo "<VirtualHost *:$SERVERPORT>
 echo "#######################################"
 echo "Creating Symbolic Link"
 echo "######################################"
-unlink $PROJECTDIR
-ln -s $PROJECTDIR $SYMPATH_CENTOS
 
+cd /opt/rh/httpd24/root/var/www/html
+#unlink $DIR
+ln -s /opt/$CONFFILENAME/public  $CONFFILENAME
 echo "Creating Entry in Host file"
 echo  "$SERVERIP $SERVERNAME">>/etc/hosts
 echo "######################################################"
 echo "Restarting Apache"
  /etc/init.d/httpd24-httpd graceful
+
+
+##########################composer install##################################
+cd /opt/$CONFFILENAME
+composer install;
+
 

@@ -7,8 +7,7 @@ do
 		echo "###################################################################"
 		echo "Copying to Remote $ipaddress"   		
 		export SSHPASS=$password
-		echo $ZIPNAME;
-		sshpass -e scp -r Deployment_Script $ZIPNAME.zip $username@$ipaddress:/opt
+		sshpass -e scp -r Deployment_Script  $username@$ipaddress:/opt
 		echo "Succesfully Copied to $ipaddress"
 		echo "##################################################################"
 	elif [ "$1" = "environment" ]
