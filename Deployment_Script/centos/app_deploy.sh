@@ -1,6 +1,9 @@
 #!/bin/bash
 source ../appconfig;
+source ../dbconfig;
 
+
+mysql -u$DBUSERNAME -p$DBPASSWORD -h$DBHOST -e "create database  $DBNAME";
 
 echo "#################################################" 
 echo "Deploying Application"

@@ -20,6 +20,8 @@ chmod -R 755 /opt/$CONFFILENAME
 chmod -R 777 /opt/$CONFFILENAME/app/storage
 echo "successfully copied into /opt..next will be to create symlink"
 #echo "Check your site on  url $SERVERNAME";
+#now creating database for first time deployment,
+if already exist then...
 
 
 
