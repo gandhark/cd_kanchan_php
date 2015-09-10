@@ -57,5 +57,5 @@ echo "Restarting Apache"
 ##########################composer install##################################
 cd /opt/$CONFFILENAME
 composer install;
-
+php artisan migrate;
 
